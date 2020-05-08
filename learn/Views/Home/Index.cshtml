@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id='learnosity-author'></div>
+<div id='my-demo-activity'></div>
+@section scripts{
+
+    <script src="https://items.learnosity.com/"></script>
+    @*<script src="https://questions-va.learnosity.com"></script>*@
+    @*<script src="https://items.learnosity.com/?v1"></script>*@
+
+    @*<script src='https://authorapi.learnosity.com?v1'></script>*@
+    <script>
+        debugger;
+        $.ajax({
+            url: '/home/Simple',
+            type: 'post',
+            success: function (response) {
+                LearnosityAuthor.init(JSON.parse(response));
+                 //$('#my-demo-activity').html(prettyPrint.render(response));
+            }
+        })
+    </script>
+}
